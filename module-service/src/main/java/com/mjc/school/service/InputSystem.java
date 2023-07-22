@@ -3,7 +3,7 @@ package com.mjc.school.service;
 import java.util.Scanner;
 
 public class InputSystem {
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public InputSystem() {
         this.scanner = new Scanner(System.in);

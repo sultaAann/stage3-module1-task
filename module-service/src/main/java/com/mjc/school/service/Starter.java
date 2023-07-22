@@ -1,10 +1,7 @@
 package com.mjc.school.service;
 
-import com.mjc.school.service.exceptions.CommandNotFoundException;
-
 public class Starter {
 
-    private InputSystem inputSystem;
     private final String commands = "Enter the number of operation:\n"
             + "1 - Get all news.\n"
             + "2 - Get news by id.\n"
@@ -12,6 +9,7 @@ public class Starter {
             + "4 - Update news.\n"
             + "5 - Remove news by id.\n"
             + "0 - Exit.\n";
+    private InputSystem inputSystem;
 
     public void init() {
         inputSystem = new InputSystem();
