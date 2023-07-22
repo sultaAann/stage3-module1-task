@@ -6,6 +6,11 @@ wrapper {
     gradleVersion = gradlewVersion
 }
 
+allprojects {
+    group 'com.gradle.project'
+    version '1.0-SNAPSHOT'
+}
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
