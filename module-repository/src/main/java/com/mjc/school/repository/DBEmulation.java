@@ -1,6 +1,6 @@
 package com.mjc.school.repository;
 
-import com.mjc.school.repository.impl.News;
+import com.mjc.school.repository.impl.Model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -8,32 +8,32 @@ import java.util.List;
 
 public class DBEmulation {
     private static DBEmulation INSTANCE;
-    private List<News> news = new ArrayList<>();
+    private List<Model> models = new ArrayList<>();
 
-    public List<News> readAll() {
-        return news;
+    public List<Model> readAll() {
+        return models;
     }
 
-    public News readById(int id) {
-        return news.get(id);
+    public Model readById(int id) {
+        return models.get(id);
     }
 
-    public News create(News aNews) {
-        aNews.setId(news.size() + 1);
-        news.add(aNews);
-        return aNews;
+    public Model create(Model aModel) {
+        aModel.setId(models.size() + 1);
+        models.add(aModel);
+        return aModel;
     }
 
-    public News update(int id, News aNews) {
-        aNews.setLastUpdateDate(LocalDateTime.now());
-        news.add(id, aNews);
-        return aNews;
+    public Model update(int id, Model aModel) {
+        aModel.setLastUpdateDate(LocalDateTime.now());
+        models.add(id, aModel);
+        return aModel;
     }
 
-    public boolean delete(int id) {
-        int newsLength = news.size();
-        news.remove(id);
-        if (news.size() < newsLength) {
+    public Boolean delete(int id) {
+        int newsLength = models.size();
+        models.remove(id);
+        if (models.size() < newsLength) {
             return true;
         }
         return false;

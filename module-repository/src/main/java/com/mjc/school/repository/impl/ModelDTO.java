@@ -2,7 +2,7 @@ package com.mjc.school.repository.impl;
 
 import java.time.LocalDateTime;
 
-public class News {
+public class ModelDTO {
     private int id;
     private String title;
     private String content;
@@ -48,6 +48,18 @@ public class News {
 
     public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
+    }
+
+    @Override
+    public String toString() {
+        return "NewsDTO{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", createDate=" + createDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", authorID=" + authorID +
+                '}';
     }
 
     public Long getAuthorID() {

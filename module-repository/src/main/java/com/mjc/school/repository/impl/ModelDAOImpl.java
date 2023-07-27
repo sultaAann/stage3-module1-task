@@ -1,35 +1,35 @@
 package com.mjc.school.repository.impl;
 
 import com.mjc.school.repository.DBEmulation;
-import com.mjc.school.repository.NewsDAO;
+import com.mjc.school.repository.ModelDAO;
 
 import java.util.List;
 
-public class NewsDAOImpl implements NewsDAO {
+public class ModelDAOImpl implements ModelDAO {
     DBEmulation dbEmulation = DBEmulation.getInstance();
 
     @Override
-    public List<News> readAll() {
+    public List<Model> readAll() {
         return dbEmulation.readAll();
     }
 
     @Override
-    public News readById(int id) {
+    public Model readById(int id) {
         return dbEmulation.readById(id);
     }
 
     @Override
-    public News create(News news) {
-        return dbEmulation.create(news);
+    public Model create(Model model) {
+        return dbEmulation.create(model);
     }
 
     @Override
-    public News update(int id, News news) {
-        return dbEmulation.update(id, news);
+    public Model update(int id, Model model) {
+        return dbEmulation.update(id, model);
     }
 
     @Override
-    public boolean deleteById(int id) {
+    public Boolean deleteById(int id) {
         return dbEmulation.delete(id);
     }
 }

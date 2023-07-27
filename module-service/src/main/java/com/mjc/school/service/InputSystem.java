@@ -1,10 +1,10 @@
 package com.mjc.school.service;
 
-import com.mjc.school.controller.NewsPrinter;
-import com.mjc.school.repository.impl.News;
-import com.mjc.school.repository.NewsDAO;
-import com.mjc.school.repository.impl.NewsDAOImpl;
-import com.mjc.school.repository.impl.NewsDTO;
+import com.mjc.school.controller.ModelPrinter;
+import com.mjc.school.repository.impl.Model;
+import com.mjc.school.repository.ModelDAO;
+import com.mjc.school.repository.impl.ModelDAOImpl;
+import com.mjc.school.repository.impl.ModelDTO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -13,13 +13,13 @@ import java.util.Scanner;
 
 public class InputSystem {
     private final Scanner scanner;
-    private NewsDAO newsDAO;
-    private NewsPrinter newsPrinter;
+    private ModelDAO modelDAO;
+    private ModelPrinter modelPrinter;
 
 
     public InputSystem() {
         this.scanner = new Scanner(System.in);
-        newsDAO = new NewsDAOImpl();
+        modelDAO = new ModelDAOImpl();
     }
 
     public void select() {
@@ -30,11 +30,11 @@ public class InputSystem {
             if (num == 0) {
                 System.exit(1);
             } else if (num == 1) {
-                List<NewsDTO> newsDTOS = new ArrayList<>();
-                for (News news : newsDAO.readAll()) {
-                    newsDTOS.add(NewsMapper.INSTANCE.newsToNewsDTO(news));
+                List<ModelDTO> newsDTOS = new ArrayList<>();
+                for (Model model : modelDAO.readAll()) {
+                    newsDTOS.add(ModelMapper.INSTANCE.newsToNewsDTO(model));
                 }
-                newsPrinter.printNews(newsDTOS);
+                modelPrinter.printNews(newsDTOS);
             } else if (num == 2) {
                 System.out.println("Operation: Get news by id.\n" +
                         "Enter news id:");
@@ -42,9 +42,9 @@ public class InputSystem {
                 if (scanner.hasNext()) {
                     id = Integer.parseInt(scanner.nextLine());
                 }
-                newsPrinter.printArticle(NewsMapper.INSTANCE.newsToNewsDTO(newsDAO.readById(id)));
+                modelPrinter.printArticle(ModelMapper.INSTANCE.newsToNewsDTO(modelDAO.readById(id)));
             } else if (num == 3) {
-                News news = new News();
+                Model model = new Model();
                 System.out.println("Enter news title:");
                 String title = scanner.nextLine();
                 if (title.length() < 5 || title.length() > 30)
@@ -53,15 +53,15 @@ public class InputSystem {
                 String content = scanner.nextLine();
                 if (content.length() < 5 || content.length() > 255)
                     System.out.println("News content can not be less than 5 and more than 30 symbols");
-                news.setTitle(title);
-                news.setContent(content);
-                news.setCreateDate(LocalDateTime.now());
-                newsPrinter.printArticle(NewsMapper.INSTANCE.newsToNewsDTO(news));
+                model.setTitle(title);
+                model.setContent(content);
+                model.setCreateDate(LocalDateTime.now());
+                modelPrinter.printArticle(ModelMapper.INSTANCE.newsToNewsDTO(model));
             } else if (num == 4) {
                 int id;
                 System.out.println("Enter news id");
                 id = Integer.parseInt(scanner.next());
-                News news = newsDAO.readById(id);
+                Model model = modelDAO.readById(id);
                 System.out.println("Enter news title:");
                 String title = scanner.nextLine();
                 if (title.length() < 5 || title.length() > 30)
@@ -70,14 +70,14 @@ public class InputSystem {
                 String content = scanner.nextLine();
                 if (content.length() < 5 || content.length() > 255)
                     System.out.println("News content can not be less than 5 and more than 30 symbols");
-                news.setTitle(title);
-                news.setContent(content);
-                newsPrinter.printArticle(NewsMapper.INSTANCE.newsToNewsDTO(news));
+                model.setTitle(title);
+                model.setContent(content);
+                modelPrinter.printArticle(ModelMapper.INSTANCE.newsToNewsDTO(model));
             } else if (num == 5) {
                 int id;
                 System.out.println("Enter news id");
                 id = Integer.parseInt(scanner.next());
-                System.out.println(newsDAO.deleteById(id));
+                System.out.println(modelDAO.deleteById(id));
             } else {
                 System.out.println("Command not found");
             }
