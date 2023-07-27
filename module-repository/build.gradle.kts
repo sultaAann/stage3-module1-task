@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.mjc.school"
-version = "unspecified"
+version = "all"
 
 repositories {
     mavenCentral()
