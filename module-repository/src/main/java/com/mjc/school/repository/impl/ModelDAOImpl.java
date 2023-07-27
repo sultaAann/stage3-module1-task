@@ -14,7 +14,7 @@ public class ModelDAOImpl implements ModelDAO {
     }
 
     @Override
-    public Model readById(int id) {
+    public Model readById(Long id) {
         return dbEmulation.readById(id);
     }
 
@@ -24,12 +24,12 @@ public class ModelDAOImpl implements ModelDAO {
     }
 
     @Override
-    public Model update(int id, Model model) {
-        return dbEmulation.update(id, model);
+    public Model update(Long id) {
+        return dbEmulation.update(id);
     }
 
     @Override
-    public Boolean deleteById(int id) {
+    public Boolean deleteById(Long id) {
         return dbEmulation.delete(id);
     }
 }

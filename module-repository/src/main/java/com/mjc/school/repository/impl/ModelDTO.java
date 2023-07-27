@@ -3,18 +3,18 @@ package com.mjc.school.repository.impl;
 import java.time.LocalDateTime;
 
 public class ModelDTO {
-    private int id;
+    private Long id;
     private String title;
     private String content;
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
     private Long authorID;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

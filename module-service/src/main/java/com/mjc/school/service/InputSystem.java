@@ -38,9 +38,9 @@ public class InputSystem {
             } else if (num == 2) {
                 System.out.println("Operation: Get news by id.\n" +
                         "Enter news id:");
-                int id = 0;
+                long id = 0;
                 if (scanner.hasNext()) {
-                    id = Integer.parseInt(scanner.nextLine());
+                    id = Long.parseLong(scanner.nextLine());
                 }
                 modelPrinter.printArticle(ModelMapper.INSTANCE.newsToNewsDTO(modelDAO.readById(id)));
             } else if (num == 3) {
@@ -58,9 +58,9 @@ public class InputSystem {
                 model.setCreateDate(LocalDateTime.now());
                 modelPrinter.printArticle(ModelMapper.INSTANCE.newsToNewsDTO(model));
             } else if (num == 4) {
-                int id;
+                long id;
                 System.out.println("Enter news id");
-                id = Integer.parseInt(scanner.next());
+                id = Long.parseLong(scanner.next());
                 Model model = modelDAO.readById(id);
                 System.out.println("Enter news title:");
                 String title = scanner.nextLine();
@@ -74,9 +74,9 @@ public class InputSystem {
                 model.setContent(content);
                 modelPrinter.printArticle(ModelMapper.INSTANCE.newsToNewsDTO(model));
             } else if (num == 5) {
-                int id;
+                long id;
                 System.out.println("Enter news id");
-                id = Integer.parseInt(scanner.next());
+                id = Long.parseLong(scanner.next());
                 System.out.println(modelDAO.deleteById(id));
             } else {
                 System.out.println("Command not found");
