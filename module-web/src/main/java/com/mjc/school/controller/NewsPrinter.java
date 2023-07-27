@@ -2,7 +2,7 @@ package com.mjc.school.controller;
 
 
 
-import com.mjc.school.repository.NewsDTO;
+import com.mjc.school.repository.impl.NewsDTO;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package com.mjc.school.service;
 
 import com.mjc.school.controller.NewsPrinter;
-import com.mjc.school.repository.News;
+import com.mjc.school.repository.impl.News;
 import com.mjc.school.repository.NewsDAO;
-import com.mjc.school.repository.NewsDAOImpl;
-import com.mjc.school.repository.NewsDTO;
+import com.mjc.school.repository.impl.NewsDAOImpl;
+import com.mjc.school.repository.impl.NewsDTO;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

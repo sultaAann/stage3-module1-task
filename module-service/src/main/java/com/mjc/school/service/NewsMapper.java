@@ -1,7 +1,7 @@
 package com.mjc.school.service;
 
-import com.mjc.school.repository.News;
-import com.mjc.school.repository.NewsDTO;
+import com.mjc.school.repository.impl.News;
+import com.mjc.school.repository.impl.NewsDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

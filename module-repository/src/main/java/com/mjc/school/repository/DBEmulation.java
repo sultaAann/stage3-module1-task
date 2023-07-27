@@ -1,5 +1,7 @@
 package com.mjc.school.repository;
 
+import com.mjc.school.repository.impl.News;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,7 @@
-package com.mjc.school.repository;
+package com.mjc.school.repository.impl;
+
+import com.mjc.school.repository.DBEmulation;
+import com.mjc.school.repository.NewsDAO;
 
 import java.util.List;
 
