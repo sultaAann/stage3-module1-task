@@ -7,11 +7,11 @@ import java.util.List;
 public interface ModelDAO {
     List<Model> readAll();
 
-    Model readById(int id);
+    Model readById(Long id);
 
     Model create(Model model);
 
-    Model update(int id, Model model);
+    Model update(Long id);
 
-    Boolean deleteById(int id);
+    Boolean deleteById(Long id);
 }

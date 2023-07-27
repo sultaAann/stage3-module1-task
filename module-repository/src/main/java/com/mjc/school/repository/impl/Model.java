@@ -1,20 +1,34 @@
 package com.mjc.school.repository.impl;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Model {
-    private int id;
+    private Long id;
     private String title;
     private String content;
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
     private Long authorID;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Model model = (Model) o;
+        return Objects.equals(id, model.id) && Objects.equals(title, model.title) && Objects.equals(content, model.content) && Objects.equals(createDate, model.createDate) && Objects.equals(lastUpdateDate, model.lastUpdateDate) && Objects.equals(authorID, model.authorID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, content, createDate, lastUpdateDate, authorID);
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
