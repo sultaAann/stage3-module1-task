@@ -9,22 +9,22 @@ public class NewsDAOImpl implements NewsDAO {
     DBEmulation dbEmulation = DBEmulation.getInstance();
 
     @Override
-    public List<News> findAll() {
-        return dbEmulation.getAll();
+    public List<News> readAll() {
+        return dbEmulation.readAll();
     }
 
     @Override
-    public News findById(int id) {
-        return dbEmulation.getNewsByID(id);
+    public News readById(int id) {
+        return dbEmulation.readById(id);
     }
 
     @Override
-    public News createNews(News news) {
+    public News create(News news) {
         return dbEmulation.create(news);
     }
 
     @Override
-    public News updateNews(int id, News news) {
+    public News update(int id, News news) {
         return dbEmulation.update(id, news);
     }
 

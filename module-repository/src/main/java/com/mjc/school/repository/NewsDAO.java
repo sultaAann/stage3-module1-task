@@ -5,13 +5,13 @@ import com.mjc.school.repository.impl.News;
 import java.util.List;
 
 public interface NewsDAO {
-    List<News> findAll();
+    List<News> readAll();
 
-    News findById(int id);
+    News readById(int id);
 
-    News createNews(News news);
+    News create(News news);
 
-    News updateNews(int id, News news);
+    News update(int id, News news);
 
     boolean deleteById(int id);
 }

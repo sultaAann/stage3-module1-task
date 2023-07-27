@@ -10,11 +10,11 @@ public class DBEmulation {
     private static DBEmulation INSTANCE;
     private List<News> news = new ArrayList<>();
 
-    public List<News> getAll() {
+    public List<News> readAll() {
         return news;
     }
 
-    public News getNewsByID(int id) {
+    public News readById(int id) {
         return news.get(id);
     }
 
