@@ -1,4 +1,4 @@
-package com.mjc.school.repository;
+package com.mjc.school.service;
 
 import java.time.LocalDateTime;
 
@@ -48,6 +48,18 @@ public class NewsDTO {
 
     public void setLastUpdateDate(LocalDateTime lastUpdateDate) {
         this.lastUpdateDate = lastUpdateDate;
+    }
+
+    @Override
+    public String toString() {
+        return "NewsDTO{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", createDate=" + createDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", authorID=" + authorID +
+                '}';
     }
 
     public Long getAuthorID() {

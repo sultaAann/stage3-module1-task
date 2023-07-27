@@ -3,7 +3,7 @@ package com.mjc.school.repository;
 import java.util.List;
 
 public class NewsDAOImpl implements NewsDAO {
-    DBEmulation dbEmulation = new DBEmulation();
+    DBEmulation dbEmulation = DBEmulation.getInstance();
 
     @Override
     public List<News> findAll() {

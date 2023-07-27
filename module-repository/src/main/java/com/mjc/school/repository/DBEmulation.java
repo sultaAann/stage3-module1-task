@@ -1,10 +1,12 @@
 package com.mjc.school.repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBEmulation {
-    List<News> news = new ArrayList<>();
+    private static DBEmulation INSTANCE;
+    private List<News> news = new ArrayList<>();
 
     public List<News> getAll() {
         return news;
@@ -15,11 +17,13 @@ public class DBEmulation {
     }
 
     public News create(News aNews) {
+        aNews.setId(news.size() + 1);
         news.add(aNews);
         return aNews;
     }
 
     public News update(int id, News aNews) {
+        aNews.setLastUpdateDate(LocalDateTime.now());
         news.add(id, aNews);
         return aNews;
     }
@@ -31,5 +35,16 @@ public class DBEmulation {
             return true;
         }
         return false;
+    }
+
+    private DBEmulation() {
+    }
+
+    public static DBEmulation getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new DBEmulation();
+        }
+
+        return INSTANCE;
     }
 }
