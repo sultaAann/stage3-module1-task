@@ -31,7 +31,7 @@ public class InputSystem {
                 System.exit(1);
             } else if (num == 1) {
                 List<NewsDTO> newsDTOS = new ArrayList<>();
-                for (News news : newsDAO.findAll()) {
+                for (News news : newsDAO.readAll()) {
                     newsDTOS.add(NewsMapper.INSTANCE.newsToNewsDTO(news));
                 }
                 newsPrinter.printNews(newsDTOS);
@@ -42,7 +42,7 @@ public class InputSystem {
                 if (scanner.hasNext()) {
                     id = Integer.parseInt(scanner.nextLine());
                 }
-                newsPrinter.printArticle(NewsMapper.INSTANCE.newsToNewsDTO(newsDAO.findById(id)));
+                newsPrinter.printArticle(NewsMapper.INSTANCE.newsToNewsDTO(newsDAO.readById(id)));
             } else if (num == 3) {
                 News news = new News();
                 System.out.println("Enter news title:");
@@ -61,7 +61,7 @@ public class InputSystem {
                 int id;
                 System.out.println("Enter news id");
                 id = Integer.parseInt(scanner.next());
-                News news = newsDAO.findById(id);
+                News news = newsDAO.readById(id);
                 System.out.println("Enter news title:");
                 String title = scanner.nextLine();
                 if (title.length() < 5 || title.length() > 30)
