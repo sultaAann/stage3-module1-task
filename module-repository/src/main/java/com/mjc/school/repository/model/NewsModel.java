@@ -14,7 +14,7 @@ public class NewsModel {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -54,7 +54,7 @@ public class NewsModel {
         return authorID;
     }
 
-    public void setAuthorID(Long authorID) {
+    public void setAuthorID(long authorID) {
         this.authorID = authorID;
     }
 }
