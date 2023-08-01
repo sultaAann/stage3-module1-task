@@ -9,7 +9,7 @@ import java.util.List;
 
 public class NewsDAOImpl implements NewsDAO<NewsModel> {
 
-    private DataSource db = DataSource.getInstance();
+    private final DataSource db = DataSource.getInstance();
 
     @Override
     public List<NewsModel> getAll() {
@@ -21,8 +21,8 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
         List<NewsModel> models = db.getModels();
         return models.stream()
                 .filter(newsModel -> newsModel.getId() == id)
-                .findFirst().
-                get();
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
