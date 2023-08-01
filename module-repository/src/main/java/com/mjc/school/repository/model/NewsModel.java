@@ -1,16 +1,16 @@
-package com.mjc.school.repository;
+package com.mjc.school.repository.model;
 
 import java.time.LocalDateTime;
 
-public class News {
-    private int id;
+public class NewsModel {
+    private long id;
     private String title;
     private String content;
     private LocalDateTime createDate;
     private LocalDateTime lastUpdateDate;
-    private Long authorID;
+    private long authorID;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -50,7 +50,7 @@ public class News {
         this.lastUpdateDate = lastUpdateDate;
     }
 
-    public Long getAuthorID() {
+    public long getAuthorID() {
         return authorID;
     }
 
