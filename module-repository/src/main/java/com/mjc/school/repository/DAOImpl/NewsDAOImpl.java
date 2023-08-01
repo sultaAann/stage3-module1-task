@@ -27,6 +27,8 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
 
     @Override
     public NewsModel create(NewsModel newsModel) {
+        long id = db.getModels().size() + 1;
+        newsModel.setId(id);
         newsModel.setCreateDate(LocalDateTime.now());
         db.getModels().add(newsModel);
         return newsModel;
