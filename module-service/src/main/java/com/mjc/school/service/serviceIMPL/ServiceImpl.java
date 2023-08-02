@@ -15,7 +15,7 @@ public class ServiceImpl implements Service {
     public List<NewsDTO> getAll() {
         return newsDAO.getAll().stream()
                 /*.map(ModelMapper.INSTANCE::newsToNewsDTO)*/
-                .map(newsModel -> ModelMapper.INSTANCE.newsToNewsDTO(newsModel))
+                .map(ModelMapper.INSTANCE::newsToNewsDTO)
                 .toList();
     }
 
@@ -25,13 +25,23 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public NewsDTO create(NewsModel newsModel) {
-        return ModelMapper.INSTANCE.newsToNewsDTO(newsModel);
+    public NewsDTO create(String title, String content, long authorID) {
+        NewsModel model = new NewsModel();
+        model.setTitle(title);
+        model.setContent(content);
+        model.setAuthorID(authorID);
+        newsDAO.create(model);
+        return ModelMapper.INSTANCE.newsToNewsDTO(model);
     }
 
     @Override
-    public NewsDTO update(NewsModel newsModel) {
-        return ModelMapper.INSTANCE.newsToNewsDTO(newsModel);
+    public NewsDTO update(long id, String title, String content, long authorID) {
+        NewsModel model = newsDAO.getById(id);
+        model.setTitle(title);
+        model.setContent(content);
+        model.setAuthorID(authorID);
+        newsDAO.update(model);
+        return ModelMapper.INSTANCE.newsToNewsDTO(model);
     }
 
     @Override
