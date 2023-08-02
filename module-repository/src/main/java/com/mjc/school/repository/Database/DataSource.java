@@ -15,7 +15,6 @@ public class DataSource {
     private final List<Author> authors = new ArrayList<>();
 
     private DataSource() {
-        readAll();
     }
 
     public static DataSource getInstance() {
@@ -28,11 +27,11 @@ public class DataSource {
     public List<NewsModel> getModels() {
         return models;
     }
-    private void readAll() {
+
+    public void readDefaultData() {
         readAuthors();
         readContentsAndNews();
     }
-
     private void readAuthors() {
         try (Scanner scanner = new Scanner(new File("module-repository/src/main/resources/author.txt"))) {
             while (scanner.hasNextLine()) {

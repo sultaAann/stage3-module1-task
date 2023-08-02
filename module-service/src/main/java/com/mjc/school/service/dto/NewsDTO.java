@@ -10,6 +10,31 @@ public class NewsDTO {
     private final LocalDateTime createDate;
     private final LocalDateTime lastUpdateDate;
     private final long authorID;
+
+    public long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+
+    public LocalDateTime getLastUpdateDate() {
+        return lastUpdateDate;
+    }
+
+    public long getAuthorID() {
+        return authorID;
+    }
+
     public NewsDTO(long id, String title, String content, LocalDateTime createDate, LocalDateTime lastUpdateDate, long authorID) {
         this.id = id;
         this.title = title;

@@ -14,7 +14,7 @@ import com.mjc.school.service.exceptions.TitleOrContentLengthException;
 import java.util.List;
 
 public class ServiceImpl implements Service {
-    NewsDAO<NewsModel> newsDAO = new NewsDAOImpl();
+    private final NewsDAO<NewsModel> newsDAO = new NewsDAOImpl();
     @Override
     public List<NewsDTO> getAll() {
         return newsDAO.getAll().stream()
