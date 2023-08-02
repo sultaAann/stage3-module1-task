@@ -17,7 +17,7 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
     }
 
     @Override
-    public NewsModel readById(long id) {
+    public NewsModel readById(Long id) {
         List<NewsModel> models = db.getModels();
         return models.stream()
                 .filter(newsModel -> newsModel.getId() == id)
@@ -42,7 +42,7 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
     }
 
     @Override
-    public boolean delete(long id) {
+    public Boolean delete(long id) {
         NewsModel newsModel = readById(id);
         return db.getModels().remove(newsModel);
     }
