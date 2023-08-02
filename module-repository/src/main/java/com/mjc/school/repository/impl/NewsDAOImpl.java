@@ -42,7 +42,7 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
     }
 
     @Override
-    public Boolean delete(long id) {
+    public Boolean delete(Long id) {
         NewsModel newsModel = readById(id);
         return db.getModels().remove(newsModel);
     }

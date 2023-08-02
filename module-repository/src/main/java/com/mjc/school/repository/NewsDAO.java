@@ -7,5 +7,5 @@ public interface NewsDAO<T> {
     T readById(Long id);
     T create(T t);
     T update(T t);
-    Boolean delete(long id);
+    Boolean delete(Long id);
 }
