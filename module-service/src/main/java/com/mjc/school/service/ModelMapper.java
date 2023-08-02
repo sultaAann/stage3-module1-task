@@ -10,5 +10,5 @@ public interface ModelMapper {
 
     ModelMapper INSTANCE = Mappers.getMapper(ModelMapper.class);
 
-    NewsDTO newsToNewsDTO(NewsModel model);
+    NewsDTO newsToNewsDTO(NewsModel newsModel);
 }

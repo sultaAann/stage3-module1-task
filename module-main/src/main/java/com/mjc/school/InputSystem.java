@@ -2,6 +2,9 @@ package com.mjc.school;
 
 import com.mjc.school.controller.Controller;
 import com.mjc.school.controller.impl.ControllerImpl;
+import com.mjc.school.service.exceptions.AuthorIDException;
+import com.mjc.school.service.exceptions.NewsIDException;
+import com.mjc.school.service.exceptions.TitleOrContentLengthException;
 
 import java.util.Scanner;
 
@@ -31,14 +34,14 @@ public class InputSystem {
         return inputSystem;
     }
 
-    public void start() {
+    public void start() throws NewsIDException, AuthorIDException, TitleOrContentLengthException {
         while (true) {
             System.out.print(COMMANDS);
             inputSystem.select();
         }
     }
 
-    private void select() {
+    private void select() throws NewsIDException, AuthorIDException, TitleOrContentLengthException {
         int num;
         if (scanner.hasNext()) {
             num = Integer.parseInt(scanner.next());
