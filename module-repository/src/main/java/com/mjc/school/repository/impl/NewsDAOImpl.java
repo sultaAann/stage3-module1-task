@@ -1,4 +1,4 @@
-package com.mjc.school.repository.DAOImpl;
+package com.mjc.school.repository.impl;
 
 import com.mjc.school.repository.Database.DataSource;
 import com.mjc.school.repository.NewsDAO;
@@ -12,12 +12,12 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
     private final DataSource db = DataSource.getInstance();
 
     @Override
-    public List<NewsModel> getAll() {
+    public List<NewsModel> readAll() {
         return db.getModels();
     }
 
     @Override
-    public NewsModel getById(long id) {
+    public NewsModel readById(long id) {
         List<NewsModel> models = db.getModels();
         return models.stream()
                 .filter(newsModel -> newsModel.getId() == id)
@@ -43,7 +43,7 @@ public class NewsDAOImpl implements NewsDAO<NewsModel> {
 
     @Override
     public boolean delete(long id) {
-        NewsModel newsModel = getById(id);
+        NewsModel newsModel = readById(id);
         return db.getModels().remove(newsModel);
     }
 }

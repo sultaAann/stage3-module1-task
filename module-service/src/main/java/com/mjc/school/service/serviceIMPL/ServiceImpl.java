@@ -1,6 +1,6 @@
 package com.mjc.school.service.serviceIMPL;
 
-import com.mjc.school.repository.DAOImpl.NewsDAOImpl;
+import com.mjc.school.repository.impl.NewsDAOImpl;
 import com.mjc.school.repository.NewsDAO;
 import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.ModelMapper;
@@ -17,7 +17,7 @@ public class ServiceImpl implements Service {
     private final NewsDAO<NewsModel> newsDAO = new NewsDAOImpl();
     @Override
     public List<NewsDTO> getAll() {
-        return newsDAO.getAll().stream()
+        return newsDAO.readAll().stream()
                 .map(ModelMapper.INSTANCE::newsToNewsDTO)
                 .toList();
     }
@@ -25,7 +25,7 @@ public class ServiceImpl implements Service {
     @Override
     public NewsDTO getById(long id) throws NewsIDException {
         Validator.newsIdValidator(String.valueOf(id));
-        return ModelMapper.INSTANCE.newsToNewsDTO(newsDAO.getById(id));
+        return ModelMapper.INSTANCE.newsToNewsDTO(newsDAO.readById(id));
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ServiceImpl implements Service {
         Validator.newsIdValidator(String.valueOf(id));
         Validator.titleAndContentValidate(title, content);
         Validator.authorIdValidator(String.valueOf(authorID));
-        NewsModel model = newsDAO.getById(id);
+        NewsModel model = newsDAO.readById(id);
         model.setTitle(title);
         model.setContent(content);
         model.setAuthorID(authorID);
